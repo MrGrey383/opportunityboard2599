@@ -1,0 +1,259 @@
+
+/*
+ * I chose CSS Grid for its two-dimensional layout capabilities,making it ideal for responsive card layouts. Grid allows one to
+ * change columns at breakpoints with a single property update, provides automatic spacing, and handles wrapping elegantly.
+ */
+
+:root {
+  --primary: #2563eb;
+  --accent: #10b981;
+  --bg: #f8fafc;
+  --text: #1e293b;
+  --spacing: 1rem;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+
+header {
+  background-color: var(--primary);
+  color: white;
+  padding: calc(var(--spacing) * 1.5) var(--spacing);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing);
+}
+
+
+.site-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+
+.header-text {
+  flex: 1;
+}
+
+header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.saved-counter {
+  font-size: 1rem;
+  opacity: 0.95;
+}
+
+
+nav {
+  background-color: white;
+  padding: var(--spacing);
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  gap: var(--spacing);
+  flex-wrap: wrap;
+}
+
+nav button {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary);
+  background-color: white;
+  color: var(--primary);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+nav button:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+nav button.active {
+  background-color: var(--primary);
+  color: white;
+}
+
+nav button:focus {
+  outline: 3px solid rgba(37, 99, 235, 0.3);
+  outline-offset: 2px;
+}
+
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: calc(var(--spacing) * 2) var(--spacing);
+}
+
+section {
+  margin-bottom: calc(var(--spacing) * 3);
+}
+
+section h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing);
+  color: var(--text);
+}
+
+
+.add-form {
+  display: flex;
+  gap: var(--spacing);
+  margin-bottom: calc(var(--spacing) * 2);
+  flex-wrap: wrap;
+}
+
+.add-form input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.add-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.add-form button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-form button:hover {
+  background-color: #059669;
+}
+
+.add-form button:focus {
+  outline: 3px solid rgba(16, 185, 129, 0.3);
+  outline-offset: 2px;
+}
+
+
+.opportunity-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing);
+}
+
+
+@media (min-width: 480px) {
+  .opportunity-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+.opportunity-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: var(--spacing);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.opportunity-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.opportunity-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.opportunity-card h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.opportunity-category {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--bg);
+  color: var(--primary);
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.opportunity-card button {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.opportunity-card button.save-btn {
+  background-color: var(--primary);
+  color: white;
+}
+
+.opportunity-card button.save-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.opportunity-card button.remove-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.opportunity-card button.remove-btn:hover {
+  background-color: #dc2626;
+}
+
+.opportunity-card button:focus {
+  outline: 3px solid rgba(0, 0, 0, 0.2);
+  outline-offset: 2px;
+}
+
+
+.empty-state {
+  text-align: center;
+  padding: calc(var(--spacing) * 2);
+  color: #64748b;
+  font-style: italic;
+}

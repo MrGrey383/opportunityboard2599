@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opportunity Board 2599</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header with site logo, title and saved counter -->
+  <header>
+    <div class="header-content">
+      <!-- 
+        Site logo with descriptive alt text for accessibility.
+        Alt text describes the logo's purpose/identity rather than being empty,
+        as this is meaningful branding content, not decorative.
+      -->
+      <img src="images/logo.png" alt="Opportunity Board logo" class="site-logo">
+      <div class="header-text">
+        <h1>Opportunity Board 2599</h1>
+        <div class="saved-counter" role="status" aria-live="polite">
+          Saved Opportunities: <span id="savedCount">0</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Navigation with filter controls -->
+  <nav aria-label="Opportunity filters">
+    <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+    <button class="filter-btn" data-filter="internship" aria-pressed="false">Internships</button>
+    <button class="filter-btn" data-filter="scholarship" aria-pressed="false">Scholarships</button>
+  </nav>
+  
+  <!-- Main content area -->
+  <main>
+    <!-- Available Opportunities Section -->
+    <section id="availableSection">
+      <h2>Available Opportunities</h2>
+      
+      <!-- Add Opportunity Form -->
+      <div class="add-form">
+        <input 
+          type="text" 
+          id="opportunityInput" 
+          placeholder="Enter opportunity title..."
+          aria-label="Opportunity title"
+        >
+        <button id="addBtn" aria-label="Add opportunity">Add Opportunity</button>
+      </div>
+      
+      <!-- Available Opportunities Grid -->
+      <div class="opportunity-grid" id="availableGrid" role="list">
+        <!-- Cards will be dynamically added here -->
+      </div>
+    </section>
+    
+    <!-- Saved Opportunities Section -->
+    <section id="savedSection">
+      <h2>Saved Opportunities</h2>
+      
+      <!-- Saved Opportunities Grid -->
+      <div class="opportunity-grid" id="savedGrid" role="list">
+        <div class="empty-state">No saved opportunities yet</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
